@@ -1,7 +1,7 @@
 import java.util.*;
 public class Problem {
 
-	private List<String> clauses;	//List of clauses
+	private List<String> clauses;			//List of clauses
 	private String query;
 	
 	public Problem (String query) 			//NOTE: Query passed into the datastructure at construction
