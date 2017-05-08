@@ -1,10 +1,11 @@
+package solver;
 import java.util.*;
 public class Problem {
 
 	private List<String> clauses;			//List of clauses
 	private String query;
 	
-	public Problem (String query) 			//NOTE: Query passed into the datastructure at construction
+	public Problem (String query) 			//NOTE: Query passed into the data structure at construction
 	{
 		this.query = query;
 		clauses = new ArrayList<String>();
