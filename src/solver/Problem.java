@@ -1,27 +1,23 @@
-package solver;
 import java.util.*;
 public class Problem {
 
-	private List<String> clauses;			//List of clauses
-	private String query;
+	public List<Rule> rules;			//ie) k
+	public List<Assertion> assertions;	//ie) i=>k
+	public String query;
 	
-	public Problem (String query) 			//NOTE: Query passed into the data structure at construction
+	public Problem (String query) 
 	{
 		this.query = query;
-		clauses = new ArrayList<String>();
+		rules = new ArrayList<Rule>();
 	}
-	public void AddClause(String clause)		//Does what is says
+	public void AddClause(String clause)
 	{
-		clauses.add(clause);
+		if (clause.matches("(.*)=>(.*)")){
+			rules.add(new Rule(clause));
+		}else{
+			assertions.add(new Assertion(clause));
+		}
 	}
-	//Getters and setters
-	public String getQuery() 
-	{
-		return query;
-	}
-	public List<String> getClauses() 
-	{
-		return clauses;
-	}
+
 
 }
