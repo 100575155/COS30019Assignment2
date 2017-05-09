@@ -1,8 +1,8 @@
 import java.util.*;
 public class Problem {
 
-	public List<Rule> rules;			//ie) k
-	public List<Assertion> assertions;	//ie) i=>k
+	public List<Rule> rules;			//ie) i=>k
+	public List<Assertion> assertions;		//ie) k
 	public String query;
 	
 	public Problem (String query) 
