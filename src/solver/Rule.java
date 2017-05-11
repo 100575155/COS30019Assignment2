@@ -1,4 +1,4 @@
-
+package solver;
 public class Rule {
 
 	private String operator;

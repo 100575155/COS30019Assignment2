@@ -1,4 +1,4 @@
-
+package solver;
 public class BackwardsChaining {
 
 	private Problem problem;

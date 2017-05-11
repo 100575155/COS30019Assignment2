@@ -1,4 +1,4 @@
-
+package solver;
 public class Assertion {
 
 	private String operand;
