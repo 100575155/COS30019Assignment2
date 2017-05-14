@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.regex.Pattern;
 //import java.io.*;
 //import java.util.*;
 
@@ -95,6 +96,22 @@ public class Main {
 		}
 		//this code should be unreachable. This statement is simply to satisfy Eclipse.
 		return null;
+	}
+	private static Problem CreateProblem(){
+		Problem A = new Problem(query);
+		String[] clausesList = clauses.split(";");
+		for (int i = 0; i < clausesList.length; i++) {
+			if (SanatizeInputs(clausesList[i])){
+				A.AddClause(clausesList[i]);
+			}
+			else{
+				System.out.println("This clause is not in the correct format: "+ clausesList[i]);
+			}
+		}
+		return A;
+	}
+	private static boolean SanatizeInputs(String input){
+		return Pattern.matches("([a-zA-Z0-9]=>)?[a-zA-Z0-9]+;", input);
 	}
 }
 
