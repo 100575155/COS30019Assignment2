@@ -31,7 +31,29 @@ public class Main {
 		method = args[0];
 		fileName = args[1];
 		System.out.println(readProblemFile(fileName));
-		System.out.println(method + " " + clauses + " " + query); // For testing only
+		InitMethods();
+	}
+	
+	private static void InitMethods()
+	{
+		switch(method){
+			case "TT":{
+				System.out.println("Truth Table"); // For testing only
+				break;
+			}
+			case "FC":{
+				System.out.println("Forwards Chaining"); // For testing only
+				break;
+			}
+			case "BC":{
+				System.out.println("Backwards Chaining"); // For testing only
+				break;
+			}
+			default : {
+				System.out.println("Method not found.");
+				System.exit(1); // Exits runtime if condition is not met.
+			}
+		}
 	}
 	
 	private static String readProblemFile(String fileName) // this allow only one puzzle to be specified in a problem file 
@@ -47,14 +69,14 @@ public class Main {
 			String result;
 			String currentLine;
 			
-			//checks for TELL
+			//checks for TELL (knowledge base)
 			currentLine = puzzle.readLine();
 			if(currentLine.equals("TELL")){
 				
 				currentLine = puzzle.readLine(); //fill in the clauses
 				clauses = currentLine;
 				
-				currentLine = puzzle.readLine(); //checks for ASK
+				currentLine = puzzle.readLine(); //checks for ASK(propositional symbol)
 				if(currentLine.equals("ASK")){
 					currentLine = puzzle.readLine(); //fill in the query
 					query = currentLine;
@@ -97,6 +119,7 @@ public class Main {
 		//this code should be unreachable. This statement is simply to satisfy Eclipse.
 		return null;
 	}
+	
 	private static Problem CreateProblem(){
 		Problem A = new Problem(query);
 		String[] clausesList = clauses.split(";");
