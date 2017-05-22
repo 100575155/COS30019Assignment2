@@ -42,7 +42,8 @@ public class Main {
 				break;
 			}
 			case "FC":{
-				System.out.println("Forwards Chaining"); // For testing only
+				ForwardsChaining Testcase = new ForwardsChaining(query, clauses);
+				System.out.println(Testcase.GetResult());
 				break;
 			}
 			case "BC":{
