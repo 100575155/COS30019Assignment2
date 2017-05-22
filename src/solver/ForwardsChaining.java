@@ -18,14 +18,15 @@ public class ForwardsChaining {
 		KB = kb.replaceAll("\\s+","");
 		query = q;
 		
-		PopulateLists(KB);
+		PopulateLists(KB); // will not be necessary once problem is implemented.
 	}
  
 	// populates lists (similar to create problem but lacks sanitation, will be changed once bugs have been fixed.)
 	public static void PopulateLists(String KB){ 
 		String[] clausesList = KB.split(";");
-	   
-		for (int i = 0; i < clausesList.length; i = i + 1){
+		int i = 0;
+		
+		while ( i < clausesList.length){
 			if (!clausesList[i].contains("=>")){ 
 				rules.add(clausesList[i]);
 			}
@@ -34,16 +35,18 @@ public class ForwardsChaining {
 				assertions.add(clausesList[i]);
 				count.add(clausesList[i].split("&").length);
 			}
+			i = i + 1;
 		}
 	}
  
 	// forward chaining
 	public boolean RunForwardsChaining(){
-		while(!rules.isEmpty()){
+		while(rules.size() > 0){
 			String r = rules.remove(0);
 			entails.add(r);
+			int i = 0;
 			
-			for (int i = 0; i < assertions.size(); i = i + 1){
+			while ( i < assertions.size() ){
 				if (CheckQueryExists(assertions.get(i), r)){
 					Integer temp = count.get(i);
 					count.set(i, temp = temp - 1);
@@ -54,7 +57,8 @@ public class ForwardsChaining {
 						}
 						rules.add(rightOperand);					
 					}
-				}	
+				}
+				i = i + 1;
 			}
 		}
 		return false; // forward chaining is not possible
@@ -74,17 +78,19 @@ public class ForwardsChaining {
 		}
 	}
 	
-	// creates and returns result
+	// creates and returns result as string
 	public String GetResult(){
 		String result = "";
 		
 		if (RunForwardsChaining()){ // checks if forward chaining is possible
 			result = "YES: ";
+			int i = 0;
 			
-			for (int i = 0; i < entails.size(); i = i + 1){
+			while (i < entails.size()){
 				result += " " + entails.get(i) + ",";
+				i = i + 1;
 			}
-			result += " " + query;	
+			result += " " + query;
 		}
 		else
 		{
