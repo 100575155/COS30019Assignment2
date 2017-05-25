@@ -1,5 +1,8 @@
 
 public class TruthTableNew{
+
+  private String[] sybols;
+  private boolean[][] truthTable;
   private String makeFunction(String input){
 
   }
@@ -8,8 +11,22 @@ public class TruthTableNew{
     Set<String> mySet = new HashSet<String>(Arrays.asList(strArray));
     return mySet
   }
+  public void TruthTable(){
 
-}
+  }
+  private static void printTruthTable(int n) {    //Taken from : https://stackoverflow.com/questions/10723168/generating-truth-tables-in-java
+        int rows = (int) Math.pow(2,sybols.size());
+        truthTable = new boolean[rows][rows -1];
+        for (int i=0; i<rows; i++) {
+            for (int j=n-1; j>=0; j--) {
+              truthTable[i][j]= (boolean)(i/(int) Math.pow(2, j))%2;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        printTruthTable(3); //enter any natural int
+    }
+
 // Function when => found to change to If (example X => Y)
 // X if Y.... X = Y
 
@@ -37,4 +54,4 @@ function ChAnd (Boolean x, Boolean y) // takes either side of (&&/and) and works
   else {
     return false;
   }
-
+}
