@@ -48,7 +48,7 @@ public class ForwardsChaining {
 			
 			while ( i < assertions.size() ){
 				if (CheckQueryExists(assertions.get(i), r)){
-					Integer temp = count.get(i);
+					int temp = count.get(i);
 					count.set(i, temp = temp - 1);
 					if (count.get(i) == 0){ // Checks conjunction
 						String rightOperand = assertions.get(i).split("=>")[1];

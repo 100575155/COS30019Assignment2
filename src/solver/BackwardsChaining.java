@@ -28,9 +28,22 @@ public class BackwardsChaining {
 		return false;
 	}
 	public void PrintBackwardsChain(){
-
-			System.out.println(returns);
+		int i = 0;
+		String result = "";
+		
+		if (returns.size() > 0){
+			
+			while (i < returns.size()){
+				result = result + " " + returns.get(i) + ",";
+				i = i + 1;
+			}
+			System.out.println("YES: " + result + problem.query);
+		}
+		else
+		{
+			System.out.println("NO");
+		}
 		
 	}
-
+	
 }
