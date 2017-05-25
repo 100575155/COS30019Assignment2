@@ -27,7 +27,7 @@ public class BackwardsChaining {
 		}
 		return false;
 	}
-	private void PrintBackwardsChain(){
+	public void PrintBackwardsChain(){
 
 			System.out.println(returns);
 		

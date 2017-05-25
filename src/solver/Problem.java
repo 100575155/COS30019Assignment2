@@ -10,10 +10,11 @@ public class Problem {
 	{
 		this.query = query;
 		rules = new ArrayList<Rule>();
+		assertions = new ArrayList<Assertion>();
 	}
 	public void AddClause(String clause)
 	{
-		if (clause.matches("(.*)=>(.*)")){
+		if (clause.contains("=>")){
 			rules.add(new Rule(clause));
 		}else{
 			assertions.add(new Assertion(clause));

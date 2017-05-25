@@ -17,7 +17,8 @@ public class Rule {
 			operator = "=>";
 			leftOperand = strArray[0];
 			rightOperand = strArray[1];
-		
+			//System.out.println(strArray[0]);
+			//System.out.println(strArray[1]);
 	}
 	
 	public String getLeftOperand(){

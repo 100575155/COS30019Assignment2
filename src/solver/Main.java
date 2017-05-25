@@ -47,7 +47,9 @@ public class Main {
 				break;
 			}
 			case "BC":{
-				System.out.println("Backwards Chaining"); // For testing only
+				BackwardsChaining Testcase = new BackwardsChaining(CreateProblem());
+				Testcase.RunBackwardsChaining(query);
+				Testcase.PrintBackwardsChain();
 				break;
 			}
 			default : {
@@ -72,15 +74,17 @@ public class Main {
 			
 			//checks for TELL (knowledge base)
 			currentLine = puzzle.readLine();
+			currentLine = currentLine.replaceAll("\\s+","");
 			if(currentLine.equals("TELL")){
 				
 				currentLine = puzzle.readLine(); //fill in the clauses
-				clauses = currentLine;
+				clauses = currentLine.replaceAll("\\s+","");
 				
 				currentLine = puzzle.readLine(); //checks for ASK(propositional symbol)
+				currentLine = currentLine.replaceAll("\\s+","");
 				if(currentLine.equals("ASK")){
 					currentLine = puzzle.readLine(); //fill in the query
-					query = currentLine;
+					query = currentLine.replaceAll("\\s+","");;
 				}
 				else
 				{
@@ -124,18 +128,25 @@ public class Main {
 	private static Problem CreateProblem(){
 		Problem A = new Problem(query);
 		String[] clausesList = clauses.split(";");
-		for (int i = 0; i < clausesList.length; i++) {
-			if (SanatizeInputs(clausesList[i])){
-				A.AddClause(clausesList[i]);
-			}
-			else{
-				System.out.println("This clause is not in the correct format: "+ clausesList[i]);
-			}
+		int i = 0;
+		
+		while ( i < clausesList.length){
+			//if(SanatizeInputs(clausesList[i])){
+			//System.out.println(clausesList[i]);
+			A.AddClause(clausesList[i]);
+			i = i + 1;
+			//}
+			//else
+			//{
+			//	System.out.println("Input data does not match required format. " + clausesList[i]);
+			//	System.exit(1);
+			//}
 		}
 		return A;
 	}
-	private static boolean SanatizeInputs(String input){
-		return Pattern.matches("([a-zA-Z0-9]=>)?[a-zA-Z0-9]+;", input);
-	}
+//	private static boolean SanatizeInputs(String input){
+//		String regex = "([a-zA-Z0-9]?=>)?&?[a-zA-Z0-9]+;?";
+//		return Pattern.matches(regex, input);
+//	}
 }
 

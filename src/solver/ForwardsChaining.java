@@ -15,7 +15,7 @@ public class ForwardsChaining {
 		assertions = new ArrayList<String>();
 		entails = new ArrayList<String>();
 		count = new ArrayList<Integer>();
-		KB = kb.replaceAll("\\s+","");
+		KB = kb;
 		query = q;
 		
 		PopulateLists(KB); // will not be necessary once problem is implemented.
@@ -50,7 +50,7 @@ public class ForwardsChaining {
 				if (CheckQueryExists(assertions.get(i), r)){
 					Integer temp = count.get(i);
 					count.set(i, temp = temp - 1);
-					if (count.get(i) == 0){
+					if (count.get(i) == 0){ // Checks conjunction
 						String rightOperand = assertions.get(i).split("=>")[1];
 						if (rightOperand.equals(query)){ // Checks query entailment
 							return true;
@@ -87,10 +87,10 @@ public class ForwardsChaining {
 			int i = 0;
 			
 			while (i < entails.size()){
-				result += " " + entails.get(i) + ",";
+				result = result + " " + entails.get(i) + ",";
 				i = i + 1;
 			}
-			result += " " + query;
+			result = result + " " + query;
 		}
 		else
 		{
