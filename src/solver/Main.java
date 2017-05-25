@@ -42,7 +42,7 @@ public class Main {
 				break;
 			}
 			case "FC":{
-                ForwardsChaining Testcase = new ForwardsChaining(query, clauses); // Temporary, will change to problem later.
+                ForwardsChaining Testcase = new ForwardsChaining(CreateProblem());
 				System.out.println(Testcase.GetResult());
 				break;
 			}

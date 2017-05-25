@@ -3,59 +3,55 @@ import java.util.*;
 
 public class ForwardsChaining {
 
-	public static List<String> rules; // Temporary, will change once problem is implemented.
-	public static List<String> assertions; // Temporary, will change once problem is implemented.
-	public static List<String> entails;
+	public static List<String> assertions;
+	public static List<String> rules;
+	public static List<String> returns;
 	public static List<Integer> count;
-	public static String KB;
-	public static String query;
+	public Problem problem;
 	
-	public ForwardsChaining(String q, String kb){ 	// currently takes in query and kb directly, will be changed to problem
-		rules = new ArrayList<String>();			// once bugs in sanitation and data structure have been ironed out.
+	public ForwardsChaining(Problem a){
 		assertions = new ArrayList<String>();
-		entails = new ArrayList<String>();
+		rules = new ArrayList<String>();
+		returns = new ArrayList<String>();
 		count = new ArrayList<Integer>();
-		KB = kb;
-		query = q;
-		
-		PopulateLists(KB); // will not be necessary once problem is implemented.
+		problem = a;
+		PopulateLists();
 	}
  
-	// populates lists (similar to create problem but lacks sanitation, will be changed once bugs have been fixed.)
-	public static void PopulateLists(String KB){ 
-		String[] clausesList = KB.split(";");
+	// populates lists
+	public void PopulateLists(){ 
 		int i = 0;
+		int n = 0;
 		
-		while ( i < clausesList.length){
-			if (!clausesList[i].contains("=>")){ 
-				rules.add(clausesList[i]);
-			}
-			else
-			{
-				assertions.add(clausesList[i]);
-				count.add(clausesList[i].split("&").length);
-			}
+		while (n < problem.assertions.size()){
+			assertions.add(problem.assertions.get(n).getOperand());
+			n = n + 1;
+		}
+		
+		while ( i < problem.rules.size()){
+			rules.add(problem.rules.get(i).getLeftOperand() + problem.rules.get(i).getOperator() + problem.rules.get(i).getRightOperand());
+			count.add(problem.rules.get(i).getLeftOperand().split("&").length);
 			i = i + 1;
 		}
 	}
  
 	// forward chaining
 	public boolean RunForwardsChaining(){
-		while(rules.size() > 0){
-			String r = rules.remove(0);
-			entails.add(r);
+		while(assertions.size() > 0){
+			String r = assertions.remove(0);
+			returns.add(r);
 			int i = 0;
 			
-			while ( i < assertions.size() ){
-				if (CheckQueryExists(assertions.get(i), r)){
-					int temp = count.get(i);
-					count.set(i, temp = temp - 1);
+			while ( i < rules.size() ){
+				if (CheckQueryExists(rules.get(i), r)){
+					int tempcount = count.get(i);
+					count.set(i, tempcount = tempcount - 1);
 					if (count.get(i) == 0){ // Checks conjunction
-						String rightOperand = assertions.get(i).split("=>")[1];
-						if (rightOperand.equals(query)){ // Checks query entailment
+						String rightOperand = problem.rules.get(i).getRightOperand();
+						if (rightOperand.equals(problem.query)){
 							return true;
 						}
-						rules.add(rightOperand);					
+						assertions.add(rightOperand);					
 					}
 				}
 				i = i + 1;
@@ -86,11 +82,11 @@ public class ForwardsChaining {
 			result = "YES: ";
 			int i = 0;
 			
-			while (i < entails.size()){
-				result = result + " " + entails.get(i) + ",";
+			while (i < returns.size()){
+				result = result + " " + returns.get(i) + ",";
 				i = i + 1;
 			}
-			result = result + " " + query;
+			result = result + " " + problem.query;
 		}
 		else
 		{
