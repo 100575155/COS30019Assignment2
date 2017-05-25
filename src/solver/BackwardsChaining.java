@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class BackwardsChaining {
 
-	private Problem problem;
+	public Problem problem;
 	private ArrayList<String> returns;
 	public BackwardsChaining(Problem a){
 		problem = a;
@@ -13,15 +13,15 @@ public class BackwardsChaining {
 	public Boolean RunBackwardsChaining(String query){
 		
 		for (int i =0; i< problem.assertions.size(); i++){						//checks if the query matches an assertion
-			if (query == problem.assertions.get(i).getOperand()){
+			if (problem.query == problem.assertions.get(i).getOperand()){
 				System.out.println(problem.assertions.get(i).getOperand());
 				returns.add(problem.assertions.get(i).getOperand());
 				return true;
 			}
 		}
 		for (int i =0; i< problem.rules.size(); i++){							//checks if query is not the result of a rule
-			if (query == problem.rules.get(i).getRightOperand()){
-				System.out.println(problem.rules.get(i));
+			if (problem.query == problem.rules.get(i).getRightOperand()){
+				returns.add(problem.rules.get(i).getLeftOperand()+ problem.rules.get(i).getOperator()+ problem.rules.get(i).getRightOperand());
 				RunBackwardsChaining(problem.rules.get(i).getLeftOperand());
 			}
 		}

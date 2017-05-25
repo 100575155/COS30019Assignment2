@@ -47,9 +47,11 @@ public class Main {
 				break;
 			}
 			case "BC":{
+				System.out.println("Backwards Chaining"); // For testing only
 				BackwardsChaining Testcase = new BackwardsChaining(CreateProblem());
-				Testcase.RunBackwardsChaining(query);
+				Testcase.RunBackwardsChaining(Testcase.problem.query);
 				Testcase.PrintBackwardsChain();
+				
 				break;
 			}
 			default : {
