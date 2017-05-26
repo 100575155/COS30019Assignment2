@@ -69,23 +69,18 @@ Features/Bugs/Missing:
 - Bugs:
   - BC &?
 
-Test Cases: Working with different KB and Q? <----- write test cases (anyone)
+Test Cases: 
 - test1 (default)
   - Tell: p2=> p3; p3 => p1; c => e; b&e => f; f&g => h; p1=>d; p1&p3 => c; a; b; p2;
   - Ask: d
   - Bugs found in this test:
-
+  
 - test2:
   - Tell: f=> g; c&e => f; r&s => u;c;e;
   - Ask: g
   - Bugs found in this test:
 
 - test3:
-  - Tell:
-  - Ask:
-  - Bugs found in this test:
-
-- test4:
   - Tell:
   - Ask:
   - Bugs found in this test:
@@ -105,9 +100,6 @@ Acknowledgements/Resources/Research:
   <https://en.wikipedia.org/wiki/Backward_chaining>
   - Used as a reference and also used for a test case.
 
-- external libraries
-  - in the code the use of external libraries helps in implement the various methods. <------ add libraries used in code (either)
-
 - Wikipedia page on Forwards Chaining:
   <https://en.wikipedia.org/wiki/Forward_chaining>
   - Used as a reference and also used for a test case.  
@@ -125,10 +117,7 @@ Notes:
   - Due to time constraints and struggle to understand and find help on the implementation of Truth Table
     algorithm the final Truth Table Submission is below standard. Attempts and process of implementation
     listed above in (Missing Features)
-
-- Anyone other notes??
-  - <---------- (either)(delete this if not)
-
+    
 Summary:
 - Work Allocation
   - Lachie (Contribution Percentage = 30%)
