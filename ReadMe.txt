@@ -30,7 +30,14 @@ Features/Bugs/Missing:
 - Required features added:
   - Forward Chaining:
     - Forward Chaining is implemented and working as we intended. It takes in the test file
-      displays the correct output. (anyother other notes) <----- (anthony)
+      displays the correct output.
+	- Within ForwardsChaining.java there are four methods.
+	- PopulateLists() adds the data, provided by the Problem data structure, into lists used in ForwardsChaining.
+	- RunForwardsChaining() loops through the assertions list, checks for entailment and matches against the query. 
+	- CheckQueryExists() checks for a given variable within a given clause.
+	- GetResults() returns the output of RunForwardsChaining().
+	- Note that a limitation of this function is that unaccounted for special characters can crash due to a lack of 
+	  sanitization.
 
   - Backward Chaining:
     - Backwards chaining is split into two main function along with a constructor.
@@ -90,20 +97,29 @@ Acknowledgements/Resources/Research:
     of code to follow when implementing the methods.
 
 - TT Entails example from GitHub:
-  "https://github.com/chris-verclytte/aimaSudokuSolving/blob/master/aima-core/src/main/java/aima/core/logic/
-   propositional/inference/TTEntails.java"
+  <https://github.com/chris-verclytte/aimaSudokuSolving/blob/master/aima-core/src/main/java/aima/core/logic/
+   propositional/inference/TTEntails.java>
   - For the first attempt at Truth Tables this example helped to give an explanation on how to
     implement the Truth Table method and a good explanation of the code to follow.
 
 - Wikipedia page on Backwards Chaining:
-  https://en.wikipedia.org/wiki/Backward_chaining
+  <https://en.wikipedia.org/wiki/Backward_chaining>
   - Used as a reference and also used for a test case.
 
 - external libraries
   - in the code the use of external libraries helps in implement the various methods. <------ add libraries used in code (either)
 
-- Anyone other acknowledgments??
-  - <---------- (either)(delete this if not)
+- Wikipedia page on Forwards Chaining:
+  <https://en.wikipedia.org/wiki/Forward_chaining>
+  - Used as a reference and also used for a test case.  
+  
+- Backward & Forward Chaining explanation video:
+  <https://www.youtube.com/watch?v=ZhTt-GG7PiQ>
+  - Helped clarify the concept of Backward and Forward Chaining.
+
+- Forward and Backward Chaining explanation slideshow:
+  <http://www.iiia.csic.es/~puyol/IAGA/Teoria/07-AgentsLogicsII.pdf>
+  - Provided pseudocode for forward chaining algorithm.
 
 Notes:
 - In regards to Truth Table implementation
@@ -128,6 +144,6 @@ Summary:
     - Complete work: Backwards Chaining, Data Structure, Createproblem method in main, error debugging
 
   - Anthony (Contribution Percentage = 35%)
-    - Feedback: (<------- write feed back youve given (Anthony)
+    - Feedback: Provided general programming advice and discussed issues with solution.
 
-    - Complete work: Forwards Chaining, Input for File and method selection in main, fixing sanitize regex, error debugging set up GitHub,
+    - Complete work: Forwards Chaining, Input for File and method selection in main, fixing sanitize regex, error debugging, set up GitHub, Output for FC + BC.
