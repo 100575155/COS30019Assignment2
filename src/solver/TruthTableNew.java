@@ -47,11 +47,24 @@ function EqIf (Boolean x, Boolean y) // takes either side of (if/=>) and work ou
 
 // Function to combine with AND/&&
 
-function ChAnd (Boolean x, Boolean y) // takes either side of (&&/and) and works out boolean
+function ChAnd (Boolean x, Boolean y) {// takes either side of (&&/and) and works out boolean
   if (x = true) && (y == true){
     return true
   }
   else {
     return false;
   }
+}
+  function ComStatement(string kb) // takes in entire Kb statement and combines with Ifs and ands 
+//------ this function desinged to output True or False for each statement of Truth Table-------
+//-------goal was then to extracted number of models that Q matched truth output in Table ------    
+//--- when => is found use EqIF-----
+  if ; found then use &&
+// ---- when ; found use ChAnd ------
+  if => found then use if
+// ---- return new statement
+return new string // KB statement with replaced => and ;
+
+// ------- new kb string ------------
+// ((p2 if p3) &&((p3 if p1)and((c if e)&&(((b && e) if f) && (((f && g) if h) && ((p1 if d) && (((p1 && p3) if c) && (a && (b && p2)))))))))
 }
