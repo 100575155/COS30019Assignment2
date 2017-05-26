@@ -29,8 +29,8 @@ public class BackwardsChaining {
 			if (query.equals(problem.rules.get(i).getRightOperand())){
 				returns.add(problem.rules.get(i).getLeftOperand());
 				
-				System.out.println("Right: " +problem.rules.get(i).getRightOperand());
-				System.out.println("Left: "+problem.rules.get(i).getLeftOperand());
+				//System.out.println("Right: " +problem.rules.get(i).getRightOperand());
+				//System.out.println("Left: "+problem.rules.get(i).getLeftOperand());
 				RunBackwardsChaining(problem.rules.get(i).getLeftOperand());
 			}
 		}
