@@ -1,22 +1,3 @@
-(-----------------Delete this before submission---------------------------------)
-You must include a single readme.txt file with your work with the following details:
-? Student Details: Your full student names, ids, and your group number (as allocated by ESP).
-? Features/Bugs/Missing: Include a list of the features you have implemented. Clearly state if a
-required feature has not been implemented. Failure to do this will result in penalties. Include a list of
-any known bugs.
-? Test cases: The test cases you have developed ton test your program. What bugs have you found?
-? Acknowledgements/Resources: Include in your readme.txt file a list of the resources you have
-used to create your work. A simple list of URL's is not enough. Include with each entry a basic
-description of how the person or website assisted you in your work.
-? Notes: Anything else you want to tell the marker, such as how to use the GUI version of your
-program, and something particular about your implementation.
-? Summary report: Summary of the teamwork in this assignment. You need to clearly indicate who
-did what and how each team member gave feedback to other members. In this report, the overall
-percentage of contribution by each student to the project has to be clearly specified and summed to
-100%.
-(-----------------Delete this before submission---------------------------------)
-
-
 Assignment 2 Report:
 
 Student Details:
@@ -71,19 +52,40 @@ Features/Bugs/Missing:
 
 Test Cases: 
 - test1 (default)
-  - Tell: p2=> p3; p3 => p1; c => e; b&e => f; f&g => h; p1=>d; p1&p3 => c; a; b; p2;
-  - Ask: d
+  - TELL: p2=> p3; p3 => p1; c => e; b&e => f; f&g => h; p1=>d; p1&p3 => c; a; b; p2;
+  - ASK: d
   - Bugs found in this test:
-  
+	Unable to run BC as it contains "&" as stated earlier.
+	
 - test2:
-  - Tell: f=> g; c&e => f; r&s => u;c;e;
-  - Ask: g
+  - TELL: f=> g; c&e => f; r&s => u;c;e;
+  - ASK: g
   - Bugs found in this test:
+	Unable to run BC as it contains "&" as stated earlier.
 
+- test3:
+  - TELL: p2Q=6> p3; p3 => p12; c => e; b&e =8> f; f&g => h; 2p1=>d7; p1&p23 => 6c; 2a; bgh; 2p2;
+  - ASK: banana
+  - Bugs found in this test:  
+	None(This test was made to fail).
+	
 - test4:
-  - Tell: blue=> green; green => yellow; yellow; blue;
-  - Ask: yellow
+  - TELL: blue=> green; green => yellow; yellow; blue;
+  - ASK: yellow
   - Bugs found in this test:
+	None(This test was made to succeed).
+	
+- test5:
+  - TEqL: p2=> p3; p3 => p1; c => e; b&e => f; f&g => h; p1=>d; p1&p3 => c; a; b; p2;
+  - ASK: d
+  - Bugs found in this test:
+	None(This test was made to fail file read).
+	
+- test6:
+  - TELL: p2=> p3; p3 => p1; c => e; b&e => f; f&g => h; p1=>d; p1&p3 => c; a; b; p2;
+  - ASqK: d
+  - Bugs found in this test:
+	None(This test was made to fail file read).
   
 Acknowledgements/Resources/Research:
 - "Artificial Intelligence: a modern approach, third edition"
@@ -127,11 +129,13 @@ Summary:
     - Complete work: Truth Table, Report, Main Sanitize inputs, error debugging,
 
   - Bayley (Contribution Percentage = 35%)
-    - Feedback: Helped Lachie with the truth table designing the TruthTableNew class. Reviewed and uploaded Lachie's sanitization code.
+    - Feedback: Helped Lachie with the truth table designing the TruthTableNew class. Reviewed and
+	  uploaded Lachie's sanitization code.
 
     - Complete work: Backwards Chaining, Data Structure, Createproblem method in main, error debugging
 
   - Anthony (Contribution Percentage = 35%)
     - Feedback: Provided general programming advice and discussed issues with solution.
 
-    - Complete work: Forwards Chaining, Input for File and method selection in main, fixing sanitize regex, error debugging, set up GitHub, Output for FC + BC.
+    - Complete work: Forwards Chaining, Input for File and method selection in main, fixing sanitize regex,
+	  error debugging, set up GitHub, Output for FC + BC.
