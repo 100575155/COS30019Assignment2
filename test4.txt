@@ -1,0 +1,4 @@
+TELL
+blue=> green; green => yellow; yellow; blue;
+ASK
+yellow
