@@ -48,7 +48,7 @@ Features/Bugs/Missing:
       in the file to show our understanding.
 
 - Bugs:
-  - BC &?
+  - BC cannot handle cases where "&" symbols are present.
 
 Test Cases: 
 - test1 (default)
