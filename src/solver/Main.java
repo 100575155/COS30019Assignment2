@@ -134,8 +134,9 @@ public class Main {
 		
 		while ( i < clausesList.length){
 			//if(SanatizeInputs(clausesList[i])){
-			//System.out.println(clausesList[i]);
+			
 			A.AddClause(clausesList[i]);
+			//System.out.println(clausesList[i]);
 			i = i + 1;
 			//}
 			//else

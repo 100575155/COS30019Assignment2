@@ -11,8 +11,13 @@ public class BackwardsChaining {
 		returns = new ArrayList<String>();
 	}
 	public Boolean RunBackwardsChaining(String query){
+		query =  query.replaceAll("\\s+","");
 		
 		for (int i =0; i< problem.assertions.size(); i++){						//checks if the query matches an assertion
+			
+			System.out.println(query);
+			System.out.println(problem.assertions.get(i).getOperand());
+			System.out.println(problem.query == problem.assertions.get(i).getOperand());
 			if (problem.query == problem.assertions.get(i).getOperand()){
 				System.out.println(problem.assertions.get(i).getOperand());
 				returns.add(problem.assertions.get(i).getOperand());
