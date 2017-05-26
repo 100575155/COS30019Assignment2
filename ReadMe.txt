@@ -67,8 +67,7 @@ Features/Bugs/Missing:
       in the file to show our understanding.
 
 - Bugs:
-  - Sanitize (elaborate on bugs <------- (anyone)
-  -
+  - BC &?
 
 Test Cases: Working with different KB and Q? <----- write test cases (anyone)
 - test1 (default)
