@@ -80,11 +80,11 @@ Test Cases:
   - Ask: g
   - Bugs found in this test:
 
-- test3:
-  - Tell:
-  - Ask:
+- test4:
+  - Tell: blue=> green; green => yellow; yellow; blue;
+  - Ask: yellow
   - Bugs found in this test:
-
+  
 Acknowledgements/Resources/Research:
 - "Artificial Intelligence: a modern approach, third edition"
   - The textbook helped in regard to Forward and Backwards chaining methods as it listed examples
